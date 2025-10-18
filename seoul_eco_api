@@ -1,6 +1,6 @@
  import requests
  url = "http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty"
- api_key = "75675a79636b6f693531756a4f7066"
+ api_key = ""
  params = {
     'serviceKey': api_key,
     'returnType': 'json',
