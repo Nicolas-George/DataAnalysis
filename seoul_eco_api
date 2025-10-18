@@ -1,23 +1,19 @@
 import requests
 import json
 
-# 🔹 1. API 기본 정보 설정
-SERVICE_KEY = "YOUR_API_KEY"  # ← 서울시 공공데이터포털에서 받은 인증키로 변경
+SERVICE_KEY = "75675a79636b6f693531756a4f7066" 
 ENDPOINT = "http://openapi.seoul.go.kr:8088"
-DATA_TYPE = "json"  # 또는 'xml'
-SERVICE_NAME = "EcoMileageMemberType"  # API 서비스명
+DATA_TYPE = "json"
+SERVICE_NAME = "서울시 에코마일리지 에너지사용량 통계정보(회원유형별)"
 START_INDEX = 1
-END_INDEX = 100  # 한번에 가져올 데이터 개수 (최대 1000까지 가능)
+END_INDEX = 100
 
-# 🔹 2. 요청 URL 생성
 url = f"{ENDPOINT}/{SERVICE_KEY}/{DATA_TYPE}/{SERVICE_NAME}/{START_INDEX}/{END_INDEX}/"
 
-# 🔹 3. API 요청
 response = requests.get(url)
 
-# 🔹 4. 응답 상태 확인
 if response.status_code == 200:
     data = response.json()
-    print(json.dumps(data, indent=4, ensure_ascii=False))  # JSON 예쁘게 출력
+    print(json.dumps(data, indent=4, ensure_ascii=False))
 else:
     print(f"API 요청 실패: {response.status_code}")
